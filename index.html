@@ -2,10 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://cdn.discordapp.com/attachments/945701692287090708/1277507769875959809/y2mate.com_-_UNDERTALE_SONGS_Animation_Compilation_v144P.compressed.mp4?ex=66cd6b53&is=66cc19d3&hm=1e140300fa012811a38013e12f924a9554e403c975fd47d361f2e5817a08a06f&">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Media Display</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+        }
+        video, img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow <a href="https://cdn.discordapp.com/attachments/945701692287090708/1277507769875959809/y2mate.com_-_UNDERTALE_SONGS_Animation_Compilation_v144P.compressed.mp4?ex=66cd6b53&is=66cc19d3&hm=1e140300fa012811a38013e12f924a9554e403c975fd47d361f2e5817a08a06f&">this link</a>.</p>
+    <script>
+        const media = [
+            'https://cdn.discordapp.com/attachments/945701692287090708/1277507769875959809/y2mate.com_-_UNDERTALE_SONGS_Animation_Compilation_v144P.compressed.mp4?ex=66cd6b53&is=66cc19d3&hm=1e140300fa012811a38013e12f924a9554e403c975fd47d361f2e5817a08a06f&',
+            'Sonic.png',
+            'Sonic3.png'
+        ];
+
+        function getRandomMedia() {
+            const randomIndex = Math.floor(Math.random() * media.length);
+            return media[randomIndex];
+        }
+
+        const mediaUrl = getRandomMedia();
+
+        if (mediaUrl.endsWith('.mp4')) {
+            document.write(`<video controls autoplay>
+                <source src="${mediaUrl}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>`);
+        } else if (mediaUrl.endsWith('.png') || mediaUrl.endsWith('.jpg')) {
+            document.write(`<img src="${mediaUrl}" alt="Random Media">`);
+        }
+    </script>
 </body>
 </html>
