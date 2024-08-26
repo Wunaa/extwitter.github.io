@@ -3,45 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Media Display</title>
+    <title>Random Tweet Embed</title>
     <style>
         body {
-            margin: 0;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: black;
-            overflow: hidden;
+            margin: 0;
+            background-color: #f5f8fa;
         }
-        video, img {
+        .tweet-container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .tweet-header img {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+        }
+        .tweet-header .username {
+            font-weight: bold;
+        }
+        .tweet-header .handle {
+            color: #657786;
+        }
+        .tweet-content {
+            margin-bottom: 12px;
+        }
+        .tweet-content img {
             max-width: 100%;
-            max-height: 100%;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        .tweet-footer {
+            color: #657786;
+            font-size: 14px;
+        }
+        .tweet-footer .source {
+            color: #1da1f2;
         }
     </style>
 </head>
 <body>
+    <div class="tweet-container">
+        <div class="tweet-header">
+            <img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" alt="Profile Image">
+            <div>
+                <div class="username">Sonic Movie News</div>
+                <div class="handle">@SonicMovieNews</div>
+            </div>
+        </div>
+        <div class="tweet-content" id="tweetContent">
+            <!-- Randomized tweet content with images will be inserted here -->
+        </div>
+        <div class="tweet-footer">
+            Source: <a href="#" class="source" id="tweetSource">Twitter</a>
+        </div>
+    </div>
+
     <script>
-        const media = [
-            'Sonic.png',
-            'Sonic3.png'
+        const tweetTemplates = [
+            `Report Sonic Movie 3 Trailer will be announced on @SonicMovie on 8/26/2024. Keep an eye out for that!
+            <img src="Sonic.png" alt="Sonic Image">`,
+            `Exciting news! @SonicMovie is set to announce the Sonic Movie 3 Trailer on 8/26/2024. Don’t miss it!
+            <img src="Sonic3.png" alt="Sonic 3 Image">`,
+            `Mark your calendars! The Sonic Movie 3 Trailer will drop on 8/26/2024, according to @SonicMovie.
+            <img src="Sonic.png" alt="Sonic Image">`,
+            `@SonicMovie has hinted at a big announcement for the Sonic Movie 3 Trailer on 8/26/2024. Stay tuned!
+            <img src="Sonic3.png" alt="Sonic 3 Image">`,
+            `Sources say that @SonicMovie will reveal the Sonic Movie 3 Trailer on 8/26/2024. Get ready!
+            <img src="Sonic.png" alt="Sonic Image">`
         ];
 
-        function getRandomMedia() {
-            const randomIndex = Math.floor(Math.random() * media.length);
-            return media[randomIndex];
+        const sources = [
+            "@NintendoAmerica",
+            "@SEGA",
+            "@SonicOfficial",
+            "@SonicFanSite",
+            "@SonicNews"
+        ];
+
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
         }
 
-        const mediaUrl = getRandomMedia();
-
-        if (mediaUrl.endsWith('.mp4')) {
-            document.write(`<video controls autoplay>
-                <source src="${mediaUrl}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>`);
-        } else if (mediaUrl.endsWith('.png') || mediaUrl.endsWith('.jpg')) {
-            document.write(`<img src="${mediaUrl}" alt="Random Media">`);
-        }
+        document.getElementById('tweetContent').innerHTML = getRandomItem(tweetTemplates);
+        document.getElementById('tweetSource').innerText = getRandomItem(sources);
     </script>
 </body>
 </html>
