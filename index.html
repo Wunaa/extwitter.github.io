@@ -3,28 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Meta Tag Example</title>
-    <!-- Dynamic Meta Tags -->
-    <meta property="og:title" content="Dynamic Sonic Embed" id="meta-title">
-    <meta property="og:description" content="Check out this cool Sonic image!" id="meta-description">
-    <meta property="og:image" content="" id="meta-image">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>Discord Embed Example</title>
+
+    <!-- Open Graph Meta Tags for Discord Embed -->
+    <meta property="og:title" content="Hey">
+    <meta property="og:description" content="HES WORKING ON IT OKAY???">
+    <meta property="og:image" content="https://extwitter.com/thumbnail.jpg">
+    <meta property="og:video" content="https://extwitter.com/2025-04-01%2014-31-17.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+    <meta property="og:url" content="https://extwitter.com/2025-04-01%2014-31-17.mp4">
 </head>
 <body>
-    <h1>Dynamic Meta Tags Based on URL Parameters</h1>
-    <p>Share the link with different images!</p>
+    <h1>Discord Embed</h1>
+    <p>nothing else here</p>
 </body>
-<script>
-    // Extract URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const image = urlParams.get('image');
-
-    // Set default images if no parameter is provided
-    const defaultImage = "https://extwitter.com/Sonic.png";
-    const alternateImage = "https://extwitter.com/Sonic3.png";
-
-    // Update meta tag with the image URL
-    const imageURL = image === "2" ? alternateImage : defaultImage;
-    document.getElementById('meta-image').setAttribute('content', imageURL);
-</script>
 </html>
